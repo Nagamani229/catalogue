@@ -34,10 +34,10 @@ pipeline {
                 }
             }
         }
-        stage {
-            stage('Install dependencies') {
-                steps {
-                sh """
+    stages {
+         stage('Install dependencies') {
+             steps {
+               sh """
                   npm install
                 """
             }
@@ -75,13 +75,13 @@ pipeline {
     }
     // post build
        post {
-          always { 
+        always { 
             echo 'I will always say Hello again!'
         }
-          failure { 
+        failure { 
             echo 'this runs when pipeline is failed, used generally to send some alerts'
         }
-          success{
+        success{
             echo 'I will say Hello when pipeline is success'
         }
     }
