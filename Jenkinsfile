@@ -34,7 +34,7 @@ pipeline {
                 }
             }
         }
-        stages {
+        stage {
             stage('Install dependencies') {
                 steps {
                 sh """
@@ -74,14 +74,14 @@ pipeline {
         }
     }
     // post build
-    post { 
-        always { 
+       post {
+          always { 
             echo 'I will always say Hello again!'
         }
-        failure { 
+          failure { 
             echo 'this runs when pipeline is failed, used generally to send some alerts'
         }
-        success{
+          success{
             echo 'I will say Hello when pipeline is success'
         }
     }
