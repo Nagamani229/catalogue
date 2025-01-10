@@ -34,8 +34,8 @@ pipeline {
                 }
             }
         }
-    stages {
-         stage('Install dependencies') {
+     
+        stage('Install dependencies') {
              steps {
                sh """
                   npm install
@@ -43,9 +43,11 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo 'Testing..'
+                sh """
+                   ls -la
+                """
             }
         }
         stage('Deploy') {
@@ -85,5 +87,4 @@ pipeline {
             echo 'I will say Hello when pipeline is success'
         }
     }
- }
 }
