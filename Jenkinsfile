@@ -41,12 +41,12 @@ pipeline {
                 }
             }
         }
-         stage('Test') {
+        stage('Test') {
             steps {
                 echo 'Testing..'
             }
         }
-         stage('Deploy') {
+        stage('Deploy') {
             steps {
                 sh """
                     echo  "Here I wrote shell script"
@@ -55,7 +55,7 @@ pipeline {
                 """
             }
         }
-         stage('check params'){
+        stage('check params'){
             steps{
                 sh """
                     echo "Hello ${params.PERSON}"
