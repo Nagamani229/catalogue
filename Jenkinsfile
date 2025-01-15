@@ -4,8 +4,8 @@ pipeline {
             label 'AGENT-1'
         }
     }
-    environment { 
-        GREETING = 'Hello Jenkins'
+   environment { 
+        packageVersion = ''
     }
     options {
         timeout(time: 1, unit: 'HOURS')
