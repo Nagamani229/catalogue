@@ -42,18 +42,18 @@ pipeline {
                 """
             }
         }
-       stage('Test') {
-    steps {
-        script {
+        stage('Test') {
+         steps {
+          script {
             echo "Running tests..."
             // Add your testing commands here, e.g., `npm test`
         }
     }
 }
 
-stage('Deploy') {
-    steps {
-        script {
+       stage('Deploy') {
+        steps {
+         script {
             echo "Deploying application..."
             // Add your deployment commands here, e.g., `npm run deploy`
         }
