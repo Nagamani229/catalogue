@@ -27,27 +27,15 @@ pipeline {
         stage('Get the version') {
             steps {
                 script {
-                    def packageJson = readJson file: 'package.json'
+                    def packageJson = readJson file: 'dir/input.json'
                     packageVersion = packageJson.version
                     echo "application version: $packageVersion"
-
                 }
             }
         }
-     
-        stage('Install dependencies') {
-             steps {
-               sh """
-                  npm install
-                """
-            }
-        }
-
-        stage('Build') {
+        stage('Test') {
             steps {
-                sh """
-                   ls -la
-                """
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
@@ -76,10 +64,9 @@ pipeline {
         }
     }
     // post build
-       post {
+    post { 
         always { 
             echo 'I will always say Hello again!'
-            deleteDir()
         }
         failure { 
             echo 'this runs when pipeline is failed, used generally to send some alerts'
