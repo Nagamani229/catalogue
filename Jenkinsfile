@@ -8,9 +8,9 @@ pipeline {
         packageVersion = ''
     }
     options {
-        // ansiColor('xterm')
-        timeout(time: 1, unit: 'HOURS')
-        disableConcurrentBuilds()
+        ansiColor('xterm')
+        // timeout(time: 1, unit: 'HOURS')
+        // disableConcurrentBuilds()
     }
     
     parameters {
