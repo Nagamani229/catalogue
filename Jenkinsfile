@@ -54,7 +54,7 @@ pipeline {
                 """
             }
         }
-        stage('check params'){
+        stage('check params') {
             steps{
                 sh """
                     echo "Hello ${params.PERSON}"
