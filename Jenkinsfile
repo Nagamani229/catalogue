@@ -42,20 +42,24 @@ pipeline {
                 """
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+       stage('Test') {
+    steps {
+        script {
+            echo "Running tests..."
+            // Add your testing commands here, e.g., `npm test`
         }
-        stage('Deploy') {
-            steps {
-                sh """
-                    echo  "Here I wrote shell script"
-                    echo "$GREETING"
-                    #sleep 10
-                """
-            }
+    }
+}
+
+stage('Deploy') {
+    steps {
+        script {
+            echo "Deploying application..."
+            // Add your deployment commands here, e.g., `npm run deploy`
         }
+    }
+}
+
         stage('check params') {
             steps{
                 sh """
