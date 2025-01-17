@@ -73,35 +73,17 @@ pipeline {
 
             }
         }
-//         stage('Test') {
-//          steps {
-//           script {
-//             echo "Running tests..."
-//             // Add your testing commands here, e.g., `npm test`
-//         }
-//     }
-// }
         stage('Test') {
-            when {
-                expression {
-                    return true // Ensure the test stage runs
-                }
-            }
-        
-            steps {
-                echo "Running tests..."
-                // Your test commands here
-            }
+         steps {
+          script {
+            echo "Running tests..."
+            // Add your testing commands here, e.g., `npm test`
         }
-    
-
+    }
+}
         stage('Deploy') {
-            when {
-                expression {
-                    return true // Ensure the deploy stage runs
-                }
-            }
             steps {
+                script {
                 echo "Deploying application..."
                 // Your deployment commands here
             }
@@ -137,6 +119,7 @@ pipeline {
             echo 'I will say Hello when pipeline is success'
         }
     }
+  }
 }
 
 
