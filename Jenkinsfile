@@ -87,11 +87,13 @@ pipeline {
                     return true // Ensure the test stage runs
                 }
             }
+        
             steps {
                 echo "Running tests..."
                 // Your test commands here
             }
         }
+    
 
         stage('Deploy') {
             when {
@@ -121,7 +123,7 @@ pipeline {
                 """
             }
         }
-    }
+    
     // post build
     post { 
         always { 
@@ -136,5 +138,8 @@ pipeline {
         }
     }
 }
+
+
+
   
  
