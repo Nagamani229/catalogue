@@ -106,16 +106,16 @@ pipeline {
             }
         }
     
-    // post build
-      post {
-        always {
-            echo "This will always run, regardless of success or failure"
+     // post build
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
         }
-        success {
-            echo "This will run only if the pipeline is successful"
+        failure { 
+            echo 'this runs when pipeline is failed, used generally to send some alerts'
         }
-        failure {
-            echo "This will run only if the pipeline fails"
+        success{
+            echo 'I will say Hello when pipeline is success'
         }
     }
   }
