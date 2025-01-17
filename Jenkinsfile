@@ -107,20 +107,21 @@ pipeline {
         }
     
     // post build
-      post { 
-        always { 
-            echo "Pipeline completed, regardless of success or failure"
-            deleteDir()
+      post {
+        always {
+            echo "This will always run, regardless of success or failure"
         }
-        failure { 
-            echo 'this runs when pipeline is failed, used generally to send some alerts'
+        success {
+            echo "This will run only if the pipeline is successful"
         }
-        success{
-            echo 'I will say Hello when pipeline is success'
+        failure {
+            echo "This will run only if the pipeline fails"
         }
     }
   }
 }
+  
+
 
 
 
