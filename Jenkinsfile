@@ -5,7 +5,7 @@ pipeline {
         }
     }
    environment { 
-        packageVersion = 'sh(script: "node -e \"console.log(require('./package.json').version)\"", returnStdout: true).trim()'
+        packageVersion = '1.0.0'
         nexusURL = '172.31.93.240'
     }
     options {
