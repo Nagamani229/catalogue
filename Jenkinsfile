@@ -28,6 +28,10 @@ pipeline {
     // build
     stages {
         stage('Get the version') {
+            if (packageVersion == null) {
+    error("Package version is not defined")
+}
+
             steps {
                 script {
                     def packageVersion = readJSON(file: 'package.json').version
