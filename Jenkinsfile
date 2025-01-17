@@ -73,23 +73,38 @@ pipeline {
 
             }
         }
+//         stage('Test') {
+//          steps {
+//           script {
+//             echo "Running tests..."
+//             // Add your testing commands here, e.g., `npm test`
+//         }
+//     }
+// }
         stage('Test') {
-         steps {
-          script {
-            echo "Running tests..."
-            // Add your testing commands here, e.g., `npm test`
+            when {
+                expression {
+                    return true // Ensure the test stage runs
+                }
+            }
+            steps {
+                echo "Running tests..."
+                // Your test commands here
+            }
         }
-    }
-}
 
-       stage('Deploy') {
-        steps {
-         script {
-            echo "Deploying application..."
-            // Add your deployment commands here, e.g., `npm run deploy`
+        stage('Deploy') {
+            when {
+                expression {
+                    return true // Ensure the deploy stage runs
+                }
+            }
+            steps {
+                echo "Deploying application..."
+                // Your deployment commands here
+            }
         }
     }
-}
 
         stage('check params') {
             steps{
@@ -110,7 +125,7 @@ pipeline {
     // post build
     post { 
         always { 
-            echo 'I will always say Hello again!'
+            echo "Pipeline completed, regardless of success or failure"
             deleteDir()
         }
         failure { 
