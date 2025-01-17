@@ -107,7 +107,7 @@ pipeline {
         }
     
     // post build
-    post { 
+      post { 
         always { 
             echo "Pipeline completed, regardless of success or failure"
             deleteDir()
