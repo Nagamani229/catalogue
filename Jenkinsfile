@@ -27,15 +27,15 @@ pipeline {
     }
     // build
     stages {
-        stage('Get the version') {
-            steps {
-                script {
-                    def packageVersion = readJSON(file: 'package.json').version
-                    packageVersion = packageJson.version
-                    echo "application version: $packageVersion"
-                }
-            }
-        }
+        // stage('Get the version') {
+        //     steps {
+        //         script {
+        //             def packageVersion = readJSON(file: 'package.json').version
+        //             packageVersion = packageJson.version
+        //             echo "application version: $packageVersion"
+        //         }
+        //     }
+        // }
         stage ('install dependencies') {
             steps {
                 sh """
