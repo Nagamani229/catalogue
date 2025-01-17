@@ -5,7 +5,7 @@ pipeline {
         }
     }
    environment { 
-        packageVersion = ''
+        packageVersion = 'sh(script: "node -e \"console.log(require('./package.json').version)\"", returnStdout: true).trim()'
         nexusURL = '172.31.93.240'
     }
     options {
@@ -28,10 +28,6 @@ pipeline {
     // build
     stages {
         stage('Get the version') {
-            if (packageVersion == null) {
-    error("Package version is not defined")
-}
-
             steps {
                 script {
                     def packageVersion = readJSON(file: 'package.json').version
