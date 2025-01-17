@@ -5,7 +5,7 @@ pipeline {
         }
     }
    environment { 
-        packageVersion = '1.0.0'
+        packageVersion = ''
         nexusURL = '172.31.93.240'
     }
     options {
@@ -32,7 +32,7 @@ pipeline {
                 script {
                     def packageVersion = readJSON(file: 'package.json').version
                     packageVersion = packageJson.version
-                    echo "application version: $packageversion"
+                    echo "application version: $packageVersion"
                 }
             }
         }
