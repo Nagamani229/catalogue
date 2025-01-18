@@ -12,17 +12,17 @@ pipeline {
         timeout(time: 1, unit: 'HOURS')
         disableConcurrentBuilds()
     }
-    // parameters {
-    //     // string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+     parameters {
+         // string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
-    //     // text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+         // text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
 
-    //     // booleanParam(name: 'Deploy', defaultValue: false, description: 'Toggle this value')
+         booleanParam(name: 'Deploy', defaultValue: false, description: 'Toggle this value')
 
-    //     // choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        // choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
-    //     // password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
-    // }
+         // password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+     }
     // build
     stages {
         stage('Get the version') {
@@ -41,20 +41,20 @@ pipeline {
                 """
             }
         }
-        // stage('Unit tests') {
-        //     steps {
-        //         sh """
-        //             echo "unit tests will run here"
-        //         """
-        //     }
-        // }
-        // stage('Sonar Scan'){
-        //     steps{
-        //         sh """
-        //             sonar-scanner
-        //         """
-        //     }
-        // }
+        stage('Unit tests') {
+            steps {
+                sh """
+                    echo "unit tests will run here"
+                """
+            }
+        }
+        stage('Sonar Scan'){
+            steps{
+                sh """
+                    sonar-scanner
+                """
+            }
+        }
         stage('Build') {
             steps {
                 sh """
